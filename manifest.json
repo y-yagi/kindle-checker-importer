@@ -1,0 +1,19 @@
+{
+  "name": "Kindle Checker Importer",
+  "version": "0.1.1",
+  "manifest_version": 2,
+  "description": "Importer for Kindle Edition Checker",
+  "icons": {
+    "128": "images/icon128.png"
+  },
+  "permissions": [
+    "tabs",
+    "contextMenus",
+    "clipboardRead",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "scripts": ["dist/background.js"]
+  }
+}
