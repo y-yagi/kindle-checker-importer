@@ -5,7 +5,8 @@
   "main": "dist/background.js",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "pretty": "yarn prettier src/**/*.ts --write"
   },
   "dependencies": {
     "@types/chrome": "^0.0.74",
@@ -13,5 +14,8 @@
     "typescript": "^3.0.3",
     "webpack": "^4.17.1",
     "webpack-cli": "^3.1.0"
+  },
+  "devDependencies": {
+    "prettier": "1.14.3"
   }
 }

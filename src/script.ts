@@ -5,30 +5,32 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 });
 
 function importBook() {
-  const url = "https://kindle-edition-checker.herokuapp.com/books/import"
+  const url = "https://kindle-edition-checker.herokuapp.com/books/import";
 
   let element = document.getElementById("detail_bullets_id");
   if (!element) {
     console.log("[INFO] 'detail_bullets_id' not found");
-    return ;
+    return;
   }
 
-  let matched = element.innerHTML.match("ISBN-10:</b> ([0-9]{10})")
+  let matched = element.innerHTML.match("ISBN-10:</b> ([0-9]{10})");
   if (!matched) {
     console.log("[INFO] 'ISBN-10' not found");
-    return
+    return;
   }
 
-  let body = `isbn_10=${matched[1]}`
+  let body = `isbn_10=${matched[1]}`;
 
-  window.fetch(url, {
-    method: 'post',
-    headers: {
-      "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
-    },
-    credentials: "include",
-    body: body
-  }).then((response) => {
-    console.log(response);
-  });
+  window
+    .fetch(url, {
+      method: "post",
+      headers: {
+        "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+      },
+      credentials: "include",
+      body: body
+    })
+    .then(response => {
+      console.log(response);
+    });
 }
